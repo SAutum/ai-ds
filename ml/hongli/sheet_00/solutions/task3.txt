@@ -1,0 +1,14 @@
+By using diff we may find:
+
+diff pyyaml1.yaml pyyaml2.yaml 
+1c1
+< name: pyyaml1
+---
+> name: pyyaml2
+8c8
+<   - pyyaml=5.3.1
+---
+>   - pyyaml=3.13
+
+That in environment pyyaml1, the version for pyyaml is newer than which in pyyaml2. 
+The new version raises a depreciation warning while running example = yaml.load(ex).
