@@ -1,7 +1,7 @@
 This is the repository for the AI&DS study group. All the solutions of the exercises might be synced here.
 
 Current members are:
-- Hongli Lin 
+- Hongli Lin (kag52rer)
 - Linbo Zhang (luy28gey)
 - Shoucheng Ling (ziq34mun)
 
