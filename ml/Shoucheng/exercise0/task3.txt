@@ -1,0 +1,2 @@
+When we run the code in pyymal1, there is a yaml load warning. It says when call yaml.load(), it is supposed to specify Loader for the security concern. While the warning is not showed when run the code in pyyaml2. We could tell that the version of pyymal in pyyaml1 is 5.3.1, more recent than in pyyaml2 (with the version of pyymal 3.31).
+After following the link for more details, we know that one will get the warning by calling yaml.load without specifying parameter Loader only in pyyaml version 5.1+.
