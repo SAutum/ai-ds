@@ -1,0 +1,16 @@
+When comparing two versions of PyYAML—5.3.1 in the pyyaml1 environment and 3.13 in the pyyaml2 environment—we notice distinct behaviors. Specifically, the 5.3.1 version raises a warning when calling yaml.load() without specifying the Loader parameter, emphasizing a security concern. This warning is not present in the older 3.13 version.
+
+Upon further investigation, we learned that this warning was introduced starting from version 5.1 of PyYAML. To highlight the differences between these two environments, a diff comparison of pyyaml1.yaml and pyyaml2.yaml files shows:
+
+yaml
+Copy code
+diff pyyaml1.yaml pyyaml2.yaml 
+1c1
+< name: pyyaml1
+---
+> name: pyyaml2
+8c8
+<   - pyyaml=5.3.1
+---
+>   - pyyaml=3.13
+This confirms that the pyyaml1 environment is using a more recent version of PyYAML compared to pyyaml2.
