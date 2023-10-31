@@ -1,3 +1,5 @@
+![Screenshot from 2023-10-31 12-05-27](https://github.com/SAutum/aids/assets/69266529/12d19adf-93b2-4f57-8ad1-381214818da3)
+
 This is the repository for the AI&DS study group. All the solutions of the exercises might be synced here.
 
 Current members are:
