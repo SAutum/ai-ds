@@ -1,0 +1,69 @@
+\documentclass{article}
+\usepackage{algpseudocode}
+\algnewcommand{\LComment}[1]{\State \(\triangleright\) #1}
+\begin{document}
+
+Problem 1\\
+
+a)
+Insert Algorithm:
+\begin{algorithmic}[1]
+\Function{search\_doubly\_linked\_list}{$L$, $x$}
+    \State $e \gets L$.head
+    \While {$e$.key $\ne x$ and $e \ne$ NIL}
+        \State $e \gets e$.next
+    \EndWhile
+    \State \Return e
+\EndFunction
+\end{algorithmic}
+
+Search Algorithm:
+\begin{algorithmic}[1]
+    \Function{insert\_doubly\_linked\_list}{$L$, $x$}
+        \State $e \gets$ new element
+        \State $e$.key $\gets x$
+        \State $e$.next $\gets L$.head
+        \State $L$.head.prev $\gets e$
+        \State $L$.head $\gets e$
+        \State \Return $L$
+    \EndFunction
+\end{algorithmic}
+
+b)
+\begin{algorithmic}[1]
+    \Function{doubly\_linked\_list\_append}{$A$, $B$}
+        \State $A$.tail.next $\gets B$.head
+        \State $B$.head.prev $\gets A$.tail
+        \State $A$.tail $\gets B$.tail
+        \State \Return $A$
+    \EndFunction
+\end{algorithmic}
+
+c)
+\begin{algorithmic}[1]
+    \Function{doubly\_linked\_list\_zip}{$A$, $B$}
+        \State $i \gets 1$
+        \State $a_i \gets A$.head
+        \State $b_i \gets B$.head
+        \While {$ i < n$}
+            \LComment{Repointing $a_i$.next, $b_i$.prev,
+            $b_i$.next and $a_{i+1}$.prev}
+            \State $a_{i+1} \gets a_i$.next
+            \State $a_i$.next $\gets b_i$
+            \State $b_i$.prev $\gets a_i$
+            \State $b_{i+1} \gets b_i$.next
+            \State $b_i$.next $\gets a_{i+1}$
+            \State $a_{i+1}$.prev $\gets b_i$
+            \LComment{Initializing the variables for
+             the next iteration}
+            \State $a_i \gets a_{i+1}$
+            \State $b_i \gets b_{i+1}$
+            \State $i \gets i + 1$
+        \EndWhile
+        \State $a_i$.next $\gets b_i$
+        \State $b_i$.prev $\gets a_i$
+        \State $A$.tail $\gets B$.tail
+        \State \Return $A$
+    \EndFunction
+\end{algorithmic}
+\end{document}
