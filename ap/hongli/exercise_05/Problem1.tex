@@ -32,9 +32,17 @@ Search Algorithm:
 b)
 \begin{algorithmic}[1]
     \Function{doubly\_linked\_list\_append}{$A$, $B$}
-        \State $A$.tail.next $\gets B$.head
-        \State $B$.head.prev $\gets A$.tail
-        \State $A$.tail $\gets B$.tail
+        \State $a_i \gets A$.head
+        \While {$a_i$.next $\ne$ NIL}
+        \State $a_i \gets a_i$.next
+        \EndWhile
+        \LComment{To keep list B intact, it seems to be not
+        possible to simply link the head of B to the end of A}
+        \State $e \gets$ new element
+        \State $b_i \gets B$.head
+        \State $b_i \gets
+        \State $a_i$.next $\gets B$.head
+        \State $B$.head.prev $\gets a_i$.next
         \State \Return $A$
     \EndFunction
 \end{algorithmic}
@@ -62,7 +70,6 @@ c)
         \EndWhile
         \State $a_i$.next $\gets b_i$
         \State $b_i$.prev $\gets a_i$
-        \State $A$.tail $\gets B$.tail
         \State \Return $A$
     \EndFunction
 \end{algorithmic}
