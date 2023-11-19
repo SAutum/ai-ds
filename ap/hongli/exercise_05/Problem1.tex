@@ -38,14 +38,49 @@ b)
         \EndWhile
         \LComment{To keep list B intact, it seems to be not
         possible to simply link the head of B to the end of A}
-        \State $e \gets$ new element
         \State $b_i \gets B$.head
-        \State $b_i \gets
-        \State $a_i$.next $\gets B$.head
-        \State $B$.head.prev $\gets a_i$.next
+        \While {$b_i$.next $\ne$ NIL}
+            \State $e \gets$ new element
+            \State $e$.key $\gets b_i$.key
+            \State $a_i$.next $\gets e$
+            \State $e$.prev $\gets a_i$
+            \State $a_i \gets a_i.$next
+            \State $b_i \gets b_i$.next
+        \EndWhile
+
+        \State $e \gets$ new element
+        \State $e$.key $\gets b_i$.key
+        \State $a_i$.next $\gets e$
+        \State $e$.prev $\gets a_i$
         \State \Return $A$
     \EndFunction
 \end{algorithmic}
+
+The current algorithm has a asymptotic running time in $O(m + n)$, with the
+number of element of $A$ being $m$ and $B$ being $n$.
+
+Interestingly, if we don't care if $B$ is intact or not, and meanwhile we
+\begin{itemize}
+    \item point list $L$.head.prev to be the last element of $L$ and in accordance
+    \item point list $L$.head.prev.next to $L$.head,
+\end{itemize}
+the algorithm could be much more simpler:
+
+\begin{algorithmic}[1]
+    \Function{doubly\_linked\_list\_append}{$A$, $B$}
+        \State $a \gets A$.head.prev
+        \State $a$.next $\gets B$.head
+        \Comment{A's tail to B's head}
+        \State $B$.head.prev.next $\gets A$.head
+        \Comment{B's tail to A's head}
+        \State $A$.head.prev $\gets B$.head.prev
+        \Comment{A's head to B's tail}
+        \State $B$.head.prev $\gets a$
+        \Comment{B's head to A's tail}
+        \State \Return $A$
+    \EndFunction
+\end{algorithmic}
+This algorithm has an asymptotic running time in $O(1)$.
 
 c)
 \begin{algorithmic}[1]
