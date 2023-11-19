@@ -6,7 +6,7 @@
 Problem 1\\
 
 a)
-Insert Algorithm:
+Search Algorithm:
 \begin{algorithmic}[1]
 \Function{search\_doubly\_linked\_list}{$L$, $x$}
     \State $e \gets L$.head
@@ -17,13 +17,15 @@ Insert Algorithm:
 \EndFunction
 \end{algorithmic}
 
-Search Algorithm:
+Insert Algorithm:
 \begin{algorithmic}[1]
     \Function{insert\_doubly\_linked\_list}{$L$, $x$}
         \State $e \gets$ new element
         \State $e$.key $\gets x$
         \State $e$.next $\gets L$.head
-        \State $L$.head.prev $\gets e$
+        \If {$e$.next $\ne$ NIL}
+            \State $L$.head.prev $\gets e$
+        \EndIf
         \State $L$.head $\gets e$
         \State \Return $L$
     \EndFunction
@@ -85,26 +87,32 @@ This algorithm has an asymptotic running time in $O(1)$.
 c)
 \begin{algorithmic}[1]
     \Function{doubly\_linked\_list\_zip}{$A$, $B$}
-        \State $i \gets 1$
         \State $a_i \gets A$.head
         \State $b_i \gets B$.head
-        \While {$ i < n$}
+        \While {$a_i \ne$ NIL and $b_i \ne$ NIL}
             \LComment{Repointing $a_i$.next, $b_i$.prev,
             $b_i$.next and $a_{i+1}$.prev}
             \State $a_{i+1} \gets a_i$.next
             \State $a_i$.next $\gets b_i$
             \State $b_i$.prev $\gets a_i$
             \State $b_{i+1} \gets b_i$.next
-            \State $b_i$.next $\gets a_{i+1}$
-            \State $a_{i+1}$.prev $\gets b_i$
+            \If{$b_{i+1} \ne$ NIL}
+                \State $b_i$.next $\gets a_{i+1}$
+                \If{$a_{i+1} \ne$ NIL}
+                \State $a_{i+1}$.prev $\gets b_i$
+                \EndIf
+            \EndIf
             \LComment{Initializing the variables for
              the next iteration}
             \State $a_i \gets a_{i+1}$
             \State $b_i \gets b_{i+1}$
-            \State $i \gets i + 1$
         \EndWhile
-        \State $a_i$.next $\gets b_i$
-        \State $b_i$.prev $\gets a_i$
+        % \If {$a_i$ $\ne$ NIL}
+        %     \State $a_i$.next $\gets b_i$
+        % \EndIf
+        % \If {$b_i$ $\ne$ NIL}
+        %     \State $b_i$.prev $\gets a_i$
+        % \EndIf
         \State \Return $A$
     \EndFunction
 \end{algorithmic}
