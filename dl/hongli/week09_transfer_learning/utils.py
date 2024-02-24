@@ -43,7 +43,7 @@ def validate(model, val_loader, device):
             correct += (predicted == labels).sum()
             loss_step.append(val_loss.item())
         # dont forget to take the means here
-        val_acc = (100 * correct / total).cpu().numpy() 
+        val_acc = (100 * correct / total).cpu().numpy()
         val_loss_epoch = torch.tensor(loss_step).mean().numpy()
         ### END CODE HERE ###
         return val_acc , val_loss_epoch
@@ -92,7 +92,7 @@ def train(model, optimizer, num_epochs, train_loader, val_loader, device):
         val_acc, val_loss = validate(model, val_loader, device)
         ### END CODE HERE ###
 
-        # Print epoch results to screen 
+        # Print epoch results to screen
         msg = (f'Ep {epoch}/{num_epochs}: Accuracy : Train:{train_acc:.2f} \t Val:{val_acc:.2f} || Loss: Train {loss_curr_epoch:.3f} \t Val {val_loss:.3f}')
         pbar.set_description(msg)
         # Track stats
@@ -109,7 +109,7 @@ def train(model, optimizer, num_epochs, train_loader, val_loader, device):
                   'optimizer_state_dict': optimizer.state_dict(),
                   'loss': val_loss,
                   }, f'best_model_min_val_loss.pth')
-        
+
         if val_acc > best_val_acc:
             best_val_acc = val_acc
             torch.save({
