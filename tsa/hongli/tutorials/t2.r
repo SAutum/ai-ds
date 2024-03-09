@@ -1,5 +1,5 @@
 # set directory to the location of the data
-setwd("/home/hongli/MyApps/aids/tsa/tutorials/Tutorial 2")
+setwd("/home/hongli/MyApps/aids/tsa/tutorials/Tutorial 3")
 
 # Load the quakes.dat dataset using scan
 quakes <- scan("quakes.dat")
@@ -22,4 +22,11 @@ quakes_df <- cbind(quakes_ts, lag(quakes_ts, -1))
 ar1model <- lm(quakes_df[,1] ~ quakes_df[,2])
 print(summary(ar1model))
 
-print(coef(ar1model))
+print(coefficients(ar1model))
+
+# PACF function
+forecast::Pacf(quakes_ts)
+# forecast::Acf(quakes_ts)
+
+# Load teh FB.csv dataset using read.csv
+fb <- read.csv("FB.csv")
