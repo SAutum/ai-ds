@@ -1,4 +1,5 @@
-setwd("C:\\Users\\DICE\\Dropbox\\PC (2)\\Desktop\\Time Series\\Tutorial_WS23-24\\Tutorial 7")
+setwd("/home/hongli/MyApps/aids/tsa/tutorials/Tutorial 7")
+
 library(vars)
 library(urca)
 
@@ -6,7 +7,7 @@ library(urca)
 yield_rates <- read.csv("yields.csv")
 yield_rates$spread <- yield_rates$y10 - yield_rates$m3
 yield_rates <- ts(yield_rates,start=c(1962,1),frequency = 4)
-
+print(summary(yield_rates))
 zoo::autoplot.zoo(yield_rates,facets = NULL)
 
 # engle-granger procedure
@@ -18,7 +19,7 @@ aTSA::adf.test(yield_rates[,"m3"])
 coint_eq <- lm(y10 ~ m3, data = yield_rates)
 summary(coint_eq)
 
-# test the residuals for stationarity (-> cointegration) 
+# test the residuals for stationarity (-> cointegration)
 VARselect(coint_eq$residuals, lag.max = 5, type="const")
 aTSA::adf.test(coint_eq$residuals)
 # with N = 1, T=204 for 5%: −2.86154 - −2.8903/204 −4.234/(204^2) = -2.88
@@ -41,8 +42,8 @@ VARselect(diff(yield_rates[,c("y10","m3")]), exogen = cbind(u_spread_lagged = c(
 # ECM (add lagged residuals as exogenous variable), lag order can be adjusted based on residual plots
 # We choose p=3 since higher lag order requires too many parameters. captured most correlation before lag=7 anyway
 #and we have quarterly data
-var1 <- VAR(diff(yield_rates[,c("y10","m3")]), p = 3, 
-            exogen = cbind(u_spread_lagged = c(u_spread_lagged)), 
+var1 <- VAR(diff(yield_rates[,c("y10","m3")]), p = 3,
+            exogen = cbind(u_spread_lagged = c(u_spread_lagged)),
             type = "const")
 summary(var1)
 
@@ -61,5 +62,3 @@ summary(vec_jo) #r = 0 can be rejected at 5%-level (28.19 > 19.96)
 var_ca <- vec2var(vec_jo, r=1)
 var_ca
 plot(irf(var_ca, ortho = F,impulse = "y10",runs = 500)) #IRFs
-
-

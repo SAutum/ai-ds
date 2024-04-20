@@ -1,7 +1,6 @@
 library(forecast)
 library(tseries)
-setwd("C:\\Users\\DICE\\Dropbox\\PC (2)\\Desktop\\Time Series\\Tutorial_WS23-24\\Tutorial 5")
-
+setwd("/home/hongli/MyApps/aids/tsa/tutorials/Tutorial 5")
 #load the data and transform into ts
 hotel <- read.csv("hotel.csv")
 hotel <- ts(hotel,start = 2001, frequency = 12)
@@ -19,8 +18,8 @@ monthplot(hotel_sadj)
 
 #does the time series need further regular differencing?
 tseries::kpss.test(hotel_sadj,null = "L") #reject H_0 of stationarity
-aTSA::adf.test(hotel_sadj) #can NOT reject H_0 of non-stationarity
-aTSA::pp.test(hotel_sadj) #can NOT reject H_0 of non-stationarity
+# aTSA::adf.test(hotel_sadj) #can NOT reject H_0 of non-stationarity
+# aTSA::pp.test(hotel_sadj) #can NOT reject H_0 of non-stationarity
 #both tests point toward non-stat/unit root
 
 hotel_sadj_fd <- diff(hotel_sadj)
@@ -52,4 +51,3 @@ Box.test(model1$residuals,lag = 24,fitdf = 3,type = "L")
 model_aa <- auto.arima(hotel,seasonal = T,stepwise = F,approximation = F,max.order = 7)
 print(summary(model_aa))
 #pretty close: (2,1,0)(1,1,1)
-
