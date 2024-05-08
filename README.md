@@ -8,7 +8,7 @@ Current members are:
 - Shoucheng Ling (ziq34mun)
 
 Each folder represents a course of study:
-- ap: Advanced Programming and Algorithms
+- ap: Advanced Programming and Algorithms I & II
 - dl: Deep Learning
 - math4ai: Mathematical and Statistical Foundations of Data Science
 - ml: Machine Learning
