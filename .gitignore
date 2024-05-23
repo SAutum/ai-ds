@@ -1,2 +1,8 @@
 **/*.png
 **/*.tif
+**/*.pt
+**/*.pth
+**/*.pyc
+**/*.gz
+dlrl/**/*.txt
+dlrl/**/*.bin
