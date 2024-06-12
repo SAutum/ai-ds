@@ -2,6 +2,7 @@
 **/*.tif
 **/*.pt
 **/*.pth
+**/*.tar
 **/*.pyc
 **/*.gz
 dlrl/**/*.txt
