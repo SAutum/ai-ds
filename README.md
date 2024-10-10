@@ -16,6 +16,7 @@ Each folder represents a course of study:
 - asa: Algorithms for Sequence Analysis
 - cv: Computer Vision
 - mc: Markov Chains
+- rl: Reinforcement Learning
 
 Furthermore, each member has his/her own subfolder under each subject (e.g. ap/shoucheng). The individually solved problems can then be put in the corresponding folder.
 
