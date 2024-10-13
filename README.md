@@ -6,6 +6,7 @@ Current members are:
 - Andrea Tufo (xer16baw)
 - Hongli Lin (kag52rer)
 - Linbo Zhang (luy28gey)
+- Michele Paterson (mipat104)
 - Shoucheng Ling (ziq34mun)
 
 Each folder represents a course of study:
