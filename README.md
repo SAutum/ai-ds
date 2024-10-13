@@ -11,14 +11,17 @@ Current members are:
 
 Each folder represents a course of study:
 - ap: Advanced Programming and Algorithms I & II
-- dl: Deep Learning
-- math4ai: Mathematical and Statistical Foundations of Data Science
-- ml: Machine Learning
-- dlrl: Deep Learning: Representation Learning
 - asa: Algorithms for Sequence Analysis
 - cv: Computer Vision
+- dl: Deep Learning
+- dlgm: Deep Learning: Generative Models
+- dlrl: Deep Learning: Representation Learning
+- math4ai: Mathematical and Statistical Foundations of Data Science
 - mc: Markov Chains
+- ml: Machine Learning
+- rdb: Relational Databases and Data Analysis
 - rl: Reinforcement Learning
+- sl: Statistical Learning
 
 Furthermore, each member has his/her own subfolder under each subject (e.g. ap/shoucheng). The individually solved problems can then be put in the corresponding folder.
 
