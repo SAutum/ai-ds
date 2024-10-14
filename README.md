@@ -16,6 +16,7 @@ Each folder represents a course of study:
 - dl: Deep Learning
 - dlgm: Deep Learning: Generative Models
 - dlrl: Deep Learning: Representation Learning
+- eco_m: MV04: Econometrics
 - math4ai: Mathematical and Statistical Foundations of Data Science
 - mc: Markov Chains
 - ml: Machine Learning
