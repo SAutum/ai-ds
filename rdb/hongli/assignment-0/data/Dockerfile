@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM debian:bookworm-slim
 
 ARG MY_USER_ID
 ARG MY_GROUP_ID
@@ -22,7 +22,7 @@ RUN apt-get update \
     && apt-get clean && \
     rm -rf /var/lib/apt/lists*
 
-# Add a new user with the same UID and GID as the current host user
+# # Add a new user with the same UID and GID as the current host user
 RUN addgroup --gid $MY_GROUP_ID user && \
     adduser --disabled-password --gecos '' --uid $MY_USER_ID --gid $MY_GROUP_ID $MY_USER_NAME && \
     usermod -aG user $MY_USER_NAME
@@ -32,7 +32,7 @@ USER $MY_USER_NAME
 
 # Install Python packages as the new user, add .local/bin to PATH and add alias
 COPY requirements.txt /tmp/requirements.txt
-RUN pip3 install --user --no-cache-dir -r /tmp/requirements.txt && \
+RUN pip3 install --user --no-cache-dir -r /tmp/requirements.txt --break-system-packages && \
     rm -rf ~/.cache/pip && \
     echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc && \
     echo 'alias p="python3"' >> ~/.bashrc
