@@ -1,0 +1,2 @@
+# Your solution goes here.
+The query uses GROUP BY customer.lastname, but includes customer.firstname in the SELECT statement. This causes an error, because the column firstname is not included in the grouping column. When grouping by lastname, there may be multiple different firstnames per group and SQL cannot determin whcih one to select.
