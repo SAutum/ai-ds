@@ -13,7 +13,7 @@ ENV TZ="Europe/Berlin"
 # Install Python and other useful tools
 RUN apt-get update \
     && apt-get -y install \
-    python3 \
+    python3.10 \
     python3-pip \
     python3-tk \
     wget \
