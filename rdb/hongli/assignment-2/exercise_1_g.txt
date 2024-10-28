@@ -1,0 +1,3 @@
+# Your solution goes here.
+- The attributes which are not grouped (customer.lastname) shall be
+selected with aggregate functions (SUM, MAX, etc).
