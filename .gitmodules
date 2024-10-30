@@ -1,0 +1,3 @@
+[submodule "lab_rotation/arc/simple-diffusion"]
+	path = lab_rotation/arc/simple-diffusion
+	url = https://github.com/filipbasara0/simple-diffusion.git
