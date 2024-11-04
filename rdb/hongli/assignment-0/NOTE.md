@@ -1,8 +1,13 @@
+remember to add new group for docker to grant the user (rather than root)
+the previlege to run docker commands:
+https://docs.docker.com/engine/install/linux-postinstall/
+
 docker run \
+rddaimage \
 --name mydb \
 --rm \
 -p 5432:5432 \
--e POSTGRES_PASSWORD="chooseGoodPassword" \
+-e POSTGRES_PASSWORD="thisIsabetterPASS" \
 postgres:17.0
 
 docker run: 启动一个新的 Docker 容器。
@@ -10,7 +15,7 @@ docker run: 启动一个新的 Docker 容器。
 --rm: 当容器停止时，会自动删除该容器。这样可以节省资源，避免留下不必要的容器。
 -p 5432:5432: 将容器内部的 5432 端口映射到主机上的 5432 端口。这是 PostgreSQL 的默认端口，因此可以从主机访问到该数据库。
 -e POSTGRES_PASSWORD="chooseGoodPassword": 设置环境变量 POSTGRES_PASSWORD，为数据库的超级用户（默认是 "postgres" 用户）指定密码，这里密码是 "chooseGoodPassword"。建议使用更安全的密码。
-postgres:17.0: 指定所用的 PostgreSQL 镜像和版本，这里是 PostgreSQL 17.0。
+postgres:17.0: docker image name to use to create hte container and its version.
 
 
 docker exec -ti mydb bash

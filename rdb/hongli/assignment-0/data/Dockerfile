@@ -1,4 +1,4 @@
-FROM debian:bookworm-slim
+FROM ubuntu:22.04
 
 ARG MY_USER_ID
 ARG MY_GROUP_ID
@@ -32,7 +32,7 @@ USER $MY_USER_NAME
 
 # Install Python packages as the new user, add .local/bin to PATH and add alias
 COPY requirements.txt /tmp/requirements.txt
-RUN pip3 install --user --no-cache-dir -r /tmp/requirements.txt --break-system-packages && \
+RUN pip3 install --user --no-cache-dir -r /tmp/requirements.txt && \
     rm -rf ~/.cache/pip && \
     echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc && \
     echo 'alias p="python3"' >> ~/.bashrc
