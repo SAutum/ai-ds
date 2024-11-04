@@ -1,6 +1,6 @@
-import typing
 from exercise_1 import add
 import zipme
+
 
 def test_add(a: int, b: int, expected_sum: int) -> None:
     print(f"Testing {a} + {b}, which should be {expected_sum}.")
@@ -24,4 +24,4 @@ if __name__ == "__main__":
     test()
     zipme.finish(__file__)
 
-# 42120624101200000000
+# 65423407202200000000

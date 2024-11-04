@@ -13,16 +13,18 @@ ENV TZ="Europe/Berlin"
 # Install Python and other useful tools
 RUN apt-get update \
     && apt-get -y install \
-    python3.10 \
+    python3 \
     python3-pip \
     python3-tk \
     wget \
     unzip \
     postgresql-client \
+    sqlite3 \
     && apt-get clean && \
     rm -rf /var/lib/apt/lists*
 
 # Add a new user with the same UID and GID as the current host user
+# On MacOS, remove "addgroup --gid $MY_GROUP_ID user &&" and " --uid $MY_USER_ID --gid $MY_GROUP_ID"
 RUN addgroup --gid $MY_GROUP_ID user && \
     adduser --disabled-password --gecos '' --uid $MY_USER_ID --gid $MY_GROUP_ID $MY_USER_NAME && \
     usermod -aG user $MY_USER_NAME
