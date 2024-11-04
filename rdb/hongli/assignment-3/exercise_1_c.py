@@ -5,4 +5,4 @@ def get_query() -> str:
     return "SELECT * FROM (SELECT product_id, SUM(amount) \
                             AS total_amount \
                             FROM purchase GROUP BY product_id)\
-            WHERE total_amount > 20"
+            WHERE total_amount >= 20"
