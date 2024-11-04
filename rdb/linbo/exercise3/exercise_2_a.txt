@@ -1,0 +1,7 @@
+# Your solution goes here.
+Additive facts: Sales is a additive fact, because it can be added up by dimensions such as month, region to get a total and remain meaningful.
+
+Semi-additive facts: Headcount is a semi-additive fact, because it can be added up by region, but not by time. For example, we should use the last month's data as the total number of employees instead of adding the number of them for each month.
+
+Non-additive Fact: Profit margin is a non-additive fact. We cannot add them directly because it does not make sense to add the profit margins of different products. It should be adjusted to calculate the total profit margin.
+
