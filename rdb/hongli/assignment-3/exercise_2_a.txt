@@ -1,0 +1,12 @@
+# Your solution goes here.
+- additive: sales revenue of a company ABC of a product chess in a day
+    The sales revenue can be summed up through time (week, month, year
+    ), product (chess, boardgames, games) as well as company ('ABC', board game
+    manufacturers, ...) in all dimensions in this 3-dimensional model.
+- semi-additive: number of people present in a class of a day
+    The number is additive through classes, grades, etc, but in the
+    dimension of time, summing up number  people present in the class
+    in a week does not make sense unless we take avarage.
+- non-additive: opening price of a company of a day.
+    The summed opening price in a week or over several companies is
+    meaningless. The fact is not additive in any dimensions.
