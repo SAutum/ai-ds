@@ -5,7 +5,7 @@ class Tensor:
     def __init__(self, data=None, shape=None, children: set=(), operation="", label=None, requires_grad=True):
         assert data is not None or shape is not None
         assert data is None or shape is None
-            
+
         if data is not None:
             if isinstance(data, list):
                 self.data = np.array(data, dtype=float)
@@ -42,7 +42,7 @@ class Tensor:
             return self.einsum("ij,jk->ik", other)
         else:
             raise RuntimeError("matmul input shapes not supported")
-    
+
     # def __matmul__(self, other):
     #     other = Tensor(data=other) if not isinstance(other, Tensor) else other
     #     #out_data = self.data @ other.data
@@ -80,12 +80,12 @@ class Tensor:
 
         out._backward = _backward
         return out
-    
+
     def __mul__(self, other):
         if isinstance(other, (int, float)):
             return self.scalar_mul(other)
         if isinstance(other, np.ndarray):
-            other = Tensor(data=other.astype(np.float)) 
+            other = Tensor(data=other.astype(np.float))
         else:
             assert isinstance(other, Tensor)
 
@@ -99,18 +99,18 @@ class Tensor:
 
         out._backward = _backward
         return out
-    
+
     def __rmul__(self, other):
         return self * other
-    
+
     def __add__(self, other):
         if isinstance(other, (int, float)):
             other = Tensor(data=(other * np.ones(self.data.shape)))
         elif isinstance(other, np.ndarray):
-            other = Tensor(data=other.astype(np.float)) 
+            other = Tensor(data=other.astype(np.float))
         else:
             assert isinstance(other, Tensor)
-        
+
         out_data = self.data + other.data
         out = Tensor(data=out_data, children=(self, other), requires_grad=self._requires_grad)
 
@@ -134,7 +134,7 @@ class Tensor:
 
     def __rsub__(self, other):
         return self - other
-    
+
     def __pow__(self, exponent):
         assert isinstance(exponent, (int, float)), "Only int/float can be used"
         out_data = self.data ** exponent
@@ -152,12 +152,12 @@ class Tensor:
         x = self.data
         t = (np.exp(2*x) - 1) / (np.exp(2*x) + 1)
         out = Tensor(data=t, children=(self,), operation="tanh")
-        
+
         def _backward():
             self.grad += (1 - t ** 2) * out.grad
         out._backward = _backward
         return out
-    
+
     def relu(self):
         out_data = np.maximum(0.0, self.data)
         out = Tensor(data=out_data, children=(self,), operation='ReLU')
@@ -196,11 +196,11 @@ class Tensor:
         #exp = np.exp(self.data)
         #exp_sum = np.sum(exp, dim=-1, keepdims=True)
         out = Tensor(data=s, children=(self,), operation="softmax")
-        
+
         def _backward():
             J = np.diag(s) - np.outer(s, s)
             self.grad += J @ out.grad
-        
+
         out._backward = _backward
         return out
 
@@ -262,7 +262,7 @@ class Tensor:
                     build_topo(child)
                 topo.append(v)
         build_topo(self)
-        
+
         self.grad = np.ones_like(self.data)
         for node in reversed(topo):
             node._backward()
@@ -270,10 +270,10 @@ class Tensor:
     def __getitem__(self, idx):
         out_data = self.data[idx]
         out = Tensor(data=out_data, children=(self,), requires_grad=self._requires_grad, label="getitem")
-        
+
         def _backward():
             self.grad[idx] += out.grad
-            
+
         out._backward = _backward
         return out
 
@@ -295,7 +295,7 @@ class Tensor:
                 self.grad += out.grad[padding:-padding, padding:-padding]
             else:
                 self.grad += out.grad[:,padding:-padding, padding:-padding]
-            
+
         out._backward = _backward
         return out
 
@@ -319,7 +319,7 @@ class Tensor:
 
         for i in [-1,-2]:
             out_shape[i] = (self.data.shape[i] - k + 2*padding) // stride + 1
-        b = Tensor(data=np.zeros(out_shape), children=(self, kernel), requires_grad=True) 
+        b = Tensor(data=np.zeros(out_shape), children=(self, kernel), requires_grad=True)
         # shift the image around each pixel, multiply by the corresponding kernel value and accumulate the results
         for i in range(k):
             for j in range(k):
@@ -345,10 +345,10 @@ class Tensor:
 
         ny = m // kernel_size
         nx = n // kernel_size
-        
+
         new_shape = (self.data.shape[0], ny,kernel_size,nx,kernel_size)
         out_data = np.max(self.data.reshape(new_shape),axis=(2,4))
-        out = Tensor(data=out_data, children=(self,), operation="max-pool") 
+        out = Tensor(data=out_data, children=(self,), operation="max-pool")
 
         def _backward():
             out_data_repl = np.repeat(np.repeat(out_data,2,axis=1),2,axis=2)
@@ -366,10 +366,10 @@ class Tensor:
 
         ny = m // kernel_size
         nx = n // kernel_size
-        
+
         new_shape = (self.data.shape[0], ny,kernel_size,nx,kernel_size)
         out_data = np.mean(self.data.reshape(new_shape),axis=(2,4))
-        out = Tensor(data=out_data, children=(self,), operation="avg-pool") 
+        out = Tensor(data=out_data, children=(self,), operation="avg-pool")
 
         def _backward():
             out_data_repl = np.repeat(np.repeat(out_data,2,axis=1),2,axis=2)
@@ -383,10 +383,10 @@ class Tensor:
     def flatten(self):
         out_data = self.data.flatten()
         out = Tensor(data=out_data, children=(self,), requires_grad=self._requires_grad, label="flatten")
-        
+
         def _backward():
             self.grad += out.grad.reshape(self.data.shape)
-            
+
         out._backward = _backward
         return out
 
@@ -410,7 +410,7 @@ def draw_node_label(tensor):
   l = ""
   assert len(tensor.shape) == 0 or len(tensor.shape) == 1 or len(tensor.shape) == 2
   if len(tensor.shape) == 0:
-    return f'{tensor.item():.2f}' 
+    return f'{tensor.item():.2f}'
   elif len(tensor.shape) == 1:
     return " ".join([f'{tensor.data[i]:.2f}' for i in range(tensor.shape[0])])
   else:
@@ -420,7 +420,7 @@ def draw_node_label(tensor):
 
 def draw_dot(root):
   dot = Digraph(format='svg', graph_attr={'rankdir': 'LR'}) # LR = left to right
-  
+
   nodes, edges = trace(root)
   for n in nodes:
     uid = str(id(n))
