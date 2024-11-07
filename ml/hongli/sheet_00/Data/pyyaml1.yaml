@@ -1,8 +1,0 @@
-name: pyyaml1
-channels:
-  - anaconda
-  - salilab
-  - defaults
-dependencies:
-  - notebook
-  - pyyaml=5.3.1
