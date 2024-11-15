@@ -1,0 +1,25 @@
+# BEGIN_SOLUTION
+
+The attribute `customer.firstname` is being selected, but `firstname` does not
+appear in the GROUP-BY-statement. This is not allowed according to the SQL 92
+standard.
+
+Depending on the database, this query might either be rejected or it might
+return an undefined first name if two customers have the same last name if
+the database is sloppy (e.g. SQLite).
+
+See also:
+
+https://sqlite.org/lang_select.html#simple_select_processing#bare_columns_in_an_aggregate_query
+
+and
+
+https://www.sqlite.org/quirks.html#dubious_sql_is_allowed_without_any_error_or_warning
+
+> 10. Dubious SQL Is Allowed Without Any Error Or Warning
+
+This is a violation of the Fail-Fast principle:
+
+https://en.wikipedia.org/wiki/Fail-fast_system
+
+# END_SOLUTION
