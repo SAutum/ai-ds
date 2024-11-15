@@ -5,5 +5,6 @@
 **/*.tar
 **/*.pyc
 **/*.gz
+dlgm/**/*.h5
 dlrl/**/*.txt
 dlrl/**/*.bin

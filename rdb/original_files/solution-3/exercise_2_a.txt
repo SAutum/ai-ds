@@ -1,0 +1,21 @@
+# BEGIN_SOLUTION
+
+Additive facts can be summed over all dimensions (location, time, category, etc.). Examples are:
+    - Sales
+    - Revenue
+    - Profit
+
+Semi-additive facts can be summed over some dimensions, but not others, for example:
+    - Number of a specific kind of physical object (apples, oranges, shoes, cars, etc.)
+        - Adding objects over time does not make sense.
+        - Adding objects over different stores/locations is usually fine.
+
+Non-additive facts can not be summed, or at least the result does not make sense.
+    - Percentages or ratios (e.g. mean)
+        - Percentages usually can not be summed directly if the thing they are relative to changes (e.g. total vs relative number of sales per month).
+    - Median
+    - Standard deviation
+    - IDs
+    - PINs
+
+# END_SOLUTION
