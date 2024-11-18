@@ -8,3 +8,4 @@
 dlgm/**/*.h5
 dlrl/**/*.txt
 dlrl/**/*.bin
+**/data/*
