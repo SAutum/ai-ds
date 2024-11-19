@@ -1,0 +1,212 @@
+shop_id,branch,state,city,city_population,city_area,city_geolocation,weight
+0,1,Berlin,Berlin,3520031,891.68,52.517°N 13.383°E,3520031
+1,1,Hamburg,Hamburg,1787408,755.3,53.550°N 10.000°E,1072445
+2,2,Hamburg,Hamburg,1787408,755.3,53.550°N 10.000°E,1072445
+3,3,Hamburg,Hamburg,1787408,755.3,53.550°N 10.000°E,1072445
+4,4,Hamburg,Hamburg,1787408,755.3,53.550°N 10.000°E,1072445
+5,1,Bavaria,Munich,1450381,310.7,48.133°N 11.567°E,870229
+6,2,Bavaria,Munich,1450381,310.7,48.133°N 11.567°E,870229
+7,3,Bavaria,Munich,1450381,310.7,48.133°N 11.567°E,870229
+8,4,Bavaria,Munich,1450381,310.7,48.133°N 11.567°E,870229
+9,1,North Rhine-Westphalia,Cologne,1060582,405.02,50.933°N 6.950°E,636349
+10,2,North Rhine-Westphalia,Cologne,1060582,405.02,50.933°N 6.950°E,636349
+11,3,North Rhine-Westphalia,Cologne,1060582,405.02,50.933°N 6.950°E,636349
+12,4,North Rhine-Westphalia,Cologne,1060582,405.02,50.933°N 6.950°E,636349
+13,1,Hesse,Frankfurt am Main,732688,248.31,50.117°N 8.683°E,586150
+14,2,Hesse,Frankfurt am Main,732688,248.31,50.117°N 8.683°E,586150
+15,1,Baden-Württemberg,Stuttgart,623738,207.35,48.783°N 9.183°E,623738
+16,1,North Rhine-Westphalia,Düsseldorf,612178,217.41,51.233°N 6.783°E,367307
+17,2,North Rhine-Westphalia,Düsseldorf,612178,217.41,51.233°N 6.783°E,367307
+18,3,North Rhine-Westphalia,Düsseldorf,612178,217.41,51.233°N 6.783°E,367307
+19,4,North Rhine-Westphalia,Düsseldorf,612178,217.41,51.233°N 6.783°E,367307
+20,1,North Rhine-Westphalia,Dortmund,586181,280.71,51.517°N 7.467°E,468945
+21,2,North Rhine-Westphalia,Dortmund,586181,280.71,51.517°N 7.467°E,468945
+22,1,North Rhine-Westphalia,Essen,582624,210.34,51.450°N 7.017°E,349574
+23,2,North Rhine-Westphalia,Essen,582624,210.34,51.450°N 7.017°E,349574
+24,3,North Rhine-Westphalia,Essen,582624,210.34,51.450°N 7.017°E,349574
+25,4,North Rhine-Westphalia,Essen,582624,210.34,51.450°N 7.017°E,349574
+26,1,Saxony,Leipzig,560472,297.8,51.333°N 12.383°E,448378
+27,2,Saxony,Leipzig,560472,297.8,51.333°N 12.383°E,448378
+28,1,Bremen,Bremen,557464,326.18,53.083°N 8.800°E,334478
+29,2,Bremen,Bremen,557464,326.18,53.083°N 8.800°E,334478
+30,3,Bremen,Bremen,557464,326.18,53.083°N 8.800°E,334478
+31,4,Bremen,Bremen,557464,326.18,53.083°N 8.800°E,334478
+32,1,Saxony,Dresden,543825,328.48,51.033°N 13.733°E,326295
+33,2,Saxony,Dresden,543825,328.48,51.033°N 13.733°E,326295
+34,3,Saxony,Dresden,543825,328.48,51.033°N 13.733°E,326295
+35,4,Saxony,Dresden,543825,328.48,51.033°N 13.733°E,326295
+36,1,Lower Saxony,Hanover,532163,204.14,52.367°N 9.717°E,319298
+37,2,Lower Saxony,Hanover,532163,204.14,52.367°N 9.717°E,319298
+38,3,Lower Saxony,Hanover,532163,204.14,52.367°N 9.717°E,319298
+39,4,Lower Saxony,Hanover,532163,204.14,52.367°N 9.717°E,319298
+40,1,Bavaria,Nuremberg,509975,186.38,49.450°N 11.083°E,356982
+41,2,Bavaria,Nuremberg,509975,186.38,49.450°N 11.083°E,356982
+42,3,Bavaria,Nuremberg,509975,186.38,49.450°N 11.083°E,356982
+43,1,North Rhine-Westphalia,Duisburg,491231,232.8,51.433°N 6.767°E,294739
+44,2,North Rhine-Westphalia,Duisburg,491231,232.8,51.433°N 6.767°E,294739
+45,3,North Rhine-Westphalia,Duisburg,491231,232.8,51.433°N 6.767°E,294739
+46,4,North Rhine-Westphalia,Duisburg,491231,232.8,51.433°N 6.767°E,294739
+47,1,North Rhine-Westphalia,Bochum,364742,145.66,51.483°N 7.217°E,218845
+48,2,North Rhine-Westphalia,Bochum,364742,145.66,51.483°N 7.217°E,218845
+49,3,North Rhine-Westphalia,Bochum,364742,145.66,51.483°N 7.217°E,218845
+50,4,North Rhine-Westphalia,Bochum,364742,145.66,51.483°N 7.217°E,218845
+51,1,North Rhine-Westphalia,Wuppertal,350046,168.39,51.267°N 7.183°E,245032
+52,2,North Rhine-Westphalia,Wuppertal,350046,168.39,51.267°N 7.183°E,245032
+53,3,North Rhine-Westphalia,Wuppertal,350046,168.39,51.267°N 7.183°E,245032
+54,1,North Rhine-Westphalia,Bielefeld,333090,258.82,52.017°N 8.533°E,266472
+55,2,North Rhine-Westphalia,Bielefeld,333090,258.82,52.017°N 8.533°E,266472
+56,1,North Rhine-Westphalia,Bonn,318809,141.06,50.733°N 7.100°E,255047
+57,2,North Rhine-Westphalia,Bonn,318809,141.06,50.733°N 7.100°E,255047
+58,1,North Rhine-Westphalia,Münster,310039,303.28,51.967°N 7.633°E,217027
+59,2,North Rhine-Westphalia,Münster,310039,303.28,51.967°N 7.633°E,217027
+60,3,North Rhine-Westphalia,Münster,310039,303.28,51.967°N 7.633°E,217027
+61,1,Baden-Württemberg,Karlsruhe,307755,173.46,49.000°N 8.400°E,215428
+62,2,Baden-Württemberg,Karlsruhe,307755,173.46,49.000°N 8.400°E,215428
+63,3,Baden-Württemberg,Karlsruhe,307755,173.46,49.000°N 8.400°E,215428
+64,1,Baden-Württemberg,Mannheim,305780,144.96,49.483°N 8.467°E,305780
+65,1,Bavaria,Augsburg,286374,146.86,48.367°N 10.900°E,200462
+66,2,Bavaria,Augsburg,286374,146.86,48.367°N 10.900°E,200462
+67,3,Bavaria,Augsburg,286374,146.86,48.367°N 10.900°E,200462
+68,1,Hesse,Wiesbaden,276218,203.93,50.083°N 8.233°E,276218
+69,1,North Rhine-Westphalia,Gelsenkirchen,260368,104.94,51.517°N 7.100°E,260368
+70,1,North Rhine-Westphalia,Mönchengladbach,259996,170.47,51.200°N 6.433°E,155998
+71,2,North Rhine-Westphalia,Mönchengladbach,259996,170.47,51.200°N 6.433°E,155998
+72,3,North Rhine-Westphalia,Mönchengladbach,259996,170.47,51.200°N 6.433°E,155998
+73,4,North Rhine-Westphalia,Mönchengladbach,259996,170.47,51.200°N 6.433°E,155998
+74,1,Lower Saxony,Braunschweig,251364,192.18,52.267°N 10.517°E,201091
+75,2,Lower Saxony,Braunschweig,251364,192.18,52.267°N 10.517°E,201091
+76,1,Saxony,Chemnitz,248645,221.05,50.833°N 12.917°E,149187
+77,2,Saxony,Chemnitz,248645,221.05,50.833°N 12.917°E,149187
+78,3,Saxony,Chemnitz,248645,221.05,50.833°N 12.917°E,149187
+79,4,Saxony,Chemnitz,248645,221.05,50.833°N 12.917°E,149187
+80,1,Schleswig-Holstein,Kiel,246306,118.65,54.333°N 10.133°E,172414
+81,2,Schleswig-Holstein,Kiel,246306,118.65,54.333°N 10.133°E,172414
+82,3,Schleswig-Holstein,Kiel,246306,118.65,54.333°N 10.133°E,172414
+83,1,North Rhine-Westphalia,Aachen,245885,160.85,50.783°N 6.083°E,196708
+84,2,North Rhine-Westphalia,Aachen,245885,160.85,50.783°N 6.083°E,196708
+85,1,Saxony-Anhalt,Halle,236991,135.02,51.483°N 11.967°E,189593
+86,2,Saxony-Anhalt,Halle,236991,135.02,51.483°N 11.967°E,189593
+87,1,Saxony-Anhalt,Magdeburg,235723,201.0,52.133°N 11.617°E,188578
+88,2,Saxony-Anhalt,Magdeburg,235723,201.0,52.133°N 11.617°E,188578
+89,1,Baden-Württemberg,Freiburg im Breisgau,226393,153.06,47.983°N 7.850°E,135836
+90,2,Baden-Württemberg,Freiburg im Breisgau,226393,153.06,47.983°N 7.850°E,135836
+91,3,Baden-Württemberg,Freiburg im Breisgau,226393,153.06,47.983°N 7.850°E,135836
+92,4,Baden-Württemberg,Freiburg im Breisgau,226393,153.06,47.983°N 7.850°E,135836
+93,1,North Rhine-Westphalia,Krefeld,225144,137.77,51.333°N 6.567°E,135086
+94,2,North Rhine-Westphalia,Krefeld,225144,137.77,51.333°N 6.567°E,135086
+95,3,North Rhine-Westphalia,Krefeld,225144,137.77,51.333°N 6.567°E,135086
+96,4,North Rhine-Westphalia,Krefeld,225144,137.77,51.333°N 6.567°E,135086
+97,1,Schleswig-Holstein,Lübeck,216253,214.21,53.867°N 10.683°E,151377
+98,2,Schleswig-Holstein,Lübeck,216253,214.21,53.867°N 10.683°E,151377
+99,3,Schleswig-Holstein,Lübeck,216253,214.21,53.867°N 10.683°E,151377
+100,1,North Rhine-Westphalia,Oberhausen,210934,77.09,51.467°N 6.850°E,126560
+101,2,North Rhine-Westphalia,Oberhausen,210934,77.09,51.467°N 6.850°E,126560
+102,3,North Rhine-Westphalia,Oberhausen,210934,77.09,51.467°N 6.850°E,126560
+103,4,North Rhine-Westphalia,Oberhausen,210934,77.09,51.467°N 6.850°E,126560
+104,1,Thuringia,Erfurt,210118,269.91,50.983°N 11.033°E,147083
+105,2,Thuringia,Erfurt,210118,269.91,50.983°N 11.033°E,147083
+106,3,Thuringia,Erfurt,210118,269.91,50.983°N 11.033°E,147083
+107,1,Rhineland-Palatinate,Mainz,209779,97.74,50.000°N 8.267°E,146845
+108,2,Rhineland-Palatinate,Mainz,209779,97.74,50.000°N 8.267°E,146845
+109,3,Rhineland-Palatinate,Mainz,209779,97.74,50.000°N 8.267°E,146845
+110,1,Mecklenburg-Vorpommern,Rostock,206011,181.26,54.083°N 12.133°E,123607
+111,2,Mecklenburg-Vorpommern,Rostock,206011,181.26,54.083°N 12.133°E,123607
+112,3,Mecklenburg-Vorpommern,Rostock,206011,181.26,54.083°N 12.133°E,123607
+113,4,Mecklenburg-Vorpommern,Rostock,206011,181.26,54.083°N 12.133°E,123607
+114,1,Hesse,Kassel,197984,106.78,51.317°N 9.500°E,118790
+115,2,Hesse,Kassel,197984,106.78,51.317°N 9.500°E,118790
+116,3,Hesse,Kassel,197984,106.78,51.317°N 9.500°E,118790
+117,4,Hesse,Kassel,197984,106.78,51.317°N 9.500°E,118790
+118,1,North Rhine-Westphalia,Hagen,189044,160.45,51.367°N 7.483°E,132331
+119,2,North Rhine-Westphalia,Hagen,189044,160.45,51.367°N 7.483°E,132331
+120,3,North Rhine-Westphalia,Hagen,189044,160.45,51.367°N 7.483°E,132331
+121,1,North Rhine-Westphalia,Hamm,179397,226.43,51.683°N 7.817°E,107638
+122,2,North Rhine-Westphalia,Hamm,179397,226.43,51.683°N 7.817°E,107638
+123,3,North Rhine-Westphalia,Hamm,179397,226.43,51.683°N 7.817°E,107638
+124,4,North Rhine-Westphalia,Hamm,179397,226.43,51.683°N 7.817°E,107638
+125,1,Saarland,Saarbrücken,178151,167.09,49.233°N 7.000°E,106891
+126,2,Saarland,Saarbrücken,178151,167.09,49.233°N 7.000°E,106891
+127,3,Saarland,Saarbrücken,178151,167.09,49.233°N 7.000°E,106891
+128,4,Saarland,Saarbrücken,178151,167.09,49.233°N 7.000°E,106891
+129,1,North Rhine-Westphalia,Mülheim an der Ruhr,169278,91.28,51.433°N 6.883°E,169278
+130,1,Brandenburg,Potsdam,167745,188.26,52.400°N 13.067°E,117421
+131,2,Brandenburg,Potsdam,167745,188.26,52.400°N 13.067°E,117421
+132,3,Brandenburg,Potsdam,167745,188.26,52.400°N 13.067°E,117421
+133,1,Rhineland-Palatinate,Ludwigshafen am Rhein,164718,77.55,49.483°N 8.433°E,164718
+134,1,Lower Saxony,Oldenburg,163830,102.99,53.133°N 8.217°E,114681
+135,2,Lower Saxony,Oldenburg,163830,102.99,53.133°N 8.217°E,114681
+136,3,Lower Saxony,Oldenburg,163830,102.99,53.133°N 8.217°E,114681
+137,1,North Rhine-Westphalia,Leverkusen,163487,78.87,51.033°N 6.983°E,130790
+138,2,North Rhine-Westphalia,Leverkusen,163487,78.87,51.033°N 6.983°E,130790
+139,1,Lower Saxony,Osnabrück,162403,119.8,52.283°N 8.050°E,129922
+140,2,Lower Saxony,Osnabrück,162403,119.8,52.283°N 8.050°E,129922
+141,1,North Rhine-Westphalia,Solingen,158726,89.54,51.167°N 7.083°E,126981
+142,2,North Rhine-Westphalia,Solingen,158726,89.54,51.167°N 7.083°E,126981
+143,1,Baden-Württemberg,Heidelberg,156267,108.84,49.417°N 8.717°E,156267
+144,1,North Rhine-Westphalia,Herne,155851,51.42,51.550°N 7.217°E,155851
+145,1,North Rhine-Westphalia,Neuss,155414,99.52,51.200°N 6.700°E,155414
+146,1,Hesse,Darmstadt,155353,122.09,49.867°N 8.650°E,108747
+147,2,Hesse,Darmstadt,155353,122.09,49.867°N 8.650°E,108747
+148,3,Hesse,Darmstadt,155353,122.09,49.867°N 8.650°E,108747
+149,1,North Rhine-Westphalia,Paderborn,148126,179.59,51.717°N 8.767°E,148126
+150,1,Bavaria,Regensburg,145465,80.7,49.017°N 12.083°E,116372
+151,2,Bavaria,Regensburg,145465,80.7,49.017°N 12.083°E,116372
+152,1,Bavaria,Ingolstadt,132438,133.37,48.767°N 11.433°E,105950
+153,2,Bavaria,Ingolstadt,132438,133.37,48.767°N 11.433°E,105950
+154,1,Bavaria,Würzburg,124873,87.63,49.783°N 9.933°E,74924
+155,2,Bavaria,Würzburg,124873,87.63,49.783°N 9.933°E,74924
+156,3,Bavaria,Würzburg,124873,87.63,49.783°N 9.933°E,74924
+157,4,Bavaria,Würzburg,124873,87.63,49.783°N 9.933°E,74924
+158,1,Bavaria,Fürth,124171,63.35,49.467°N 11.000°E,86920
+159,2,Bavaria,Fürth,124171,63.35,49.467°N 11.000°E,86920
+160,3,Bavaria,Fürth,124171,63.35,49.467°N 11.000°E,86920
+161,1,Lower Saxony,Wolfsburg,124045,204.09,52.42306°N 10.78722°E,86832
+162,2,Lower Saxony,Wolfsburg,124045,204.09,52.42306°N 10.78722°E,86832
+163,3,Lower Saxony,Wolfsburg,124045,204.09,52.42306°N 10.78722°E,86832
+164,1,Hesse,Offenbach am Main,123734,44.89,50.100°N 8.800°E,98987
+165,2,Hesse,Offenbach am Main,123734,44.89,50.100°N 8.800°E,98987
+166,1,Baden-Württemberg,Ulm,122636,118.69,48.400°N 9.983°E,73582
+167,2,Baden-Württemberg,Ulm,122636,118.69,48.400°N 9.983°E,73582
+168,3,Baden-Württemberg,Ulm,122636,118.69,48.400°N 9.983°E,73582
+169,4,Baden-Württemberg,Ulm,122636,118.69,48.400°N 9.983°E,73582
+170,1,Baden-Württemberg,Heilbronn,122567,99.88,49.150°N 9.217°E,122567
+171,1,Baden-Württemberg,Pforzheim,122247,98.0,48.900°N 8.717°E,85573
+172,2,Baden-Württemberg,Pforzheim,122247,98.0,48.900°N 8.717°E,85573
+173,3,Baden-Württemberg,Pforzheim,122247,98.0,48.900°N 8.717°E,85573
+174,1,Lower Saxony,Göttingen,118914,116.89,51.533°N 9.933°E,118914
+175,1,North Rhine-Westphalia,Bottrop,117143,100.61,51.52472°N 6.92278°E,70286
+176,2,North Rhine-Westphalia,Bottrop,117143,100.61,51.52472°N 6.92278°E,70286
+177,3,North Rhine-Westphalia,Bottrop,117143,100.61,51.52472°N 6.92278°E,70286
+178,4,North Rhine-Westphalia,Bottrop,117143,100.61,51.52472°N 6.92278°E,70286
+179,1,Rhineland-Palatinate,Trier,114914,117.13,49.750°N 6.633°E,91931
+180,2,Rhineland-Palatinate,Trier,114914,117.13,49.750°N 6.633°E,91931
+181,1,North Rhine-Westphalia,Recklinghausen,114330,66.5,51.58500°N 7.16194°E,80031
+182,2,North Rhine-Westphalia,Recklinghausen,114330,66.5,51.58500°N 7.16194°E,80031
+183,3,North Rhine-Westphalia,Recklinghausen,114330,66.5,51.58500°N 7.16194°E,80031
+184,1,Baden-Württemberg,Reutlingen,114310,87.06,48.483°N 9.217°E,91448
+185,2,Baden-Württemberg,Reutlingen,114310,87.06,48.483°N 9.217°E,91448
+186,1,Bremen,Bremerhaven,114025,93.66,53.550°N 8.583°E,114025
+187,1,Rhineland-Palatinate,Koblenz,112586,105.16,50.35972°N 7.59778°E,112586
+188,1,North Rhine-Westphalia,Bergisch Gladbach,111366,83.09,51.100°N 7.117°E,89093
+189,2,North Rhine-Westphalia,Bergisch Gladbach,111366,83.09,51.100°N 7.117°E,89093
+190,1,Thuringia,Jena,109527,114.76,50.92722°N 11.58611°E,76669
+191,2,Thuringia,Jena,109527,114.76,50.92722°N 11.58611°E,76669
+192,3,Thuringia,Jena,109527,114.76,50.92722°N 11.58611°E,76669
+193,1,North Rhine-Westphalia,Remscheid,109499,74.52,51.183°N 7.200°E,65699
+194,2,North Rhine-Westphalia,Remscheid,109499,74.52,51.183°N 7.200°E,65699
+195,3,North Rhine-Westphalia,Remscheid,109499,74.52,51.183°N 7.200°E,65699
+196,4,North Rhine-Westphalia,Remscheid,109499,74.52,51.183°N 7.200°E,65699
+197,1,Bavaria,Erlangen,108336,76.95,49.583°N 11.017°E,75835
+198,2,Bavaria,Erlangen,108336,76.95,49.583°N 11.017°E,75835
+199,3,Bavaria,Erlangen,108336,76.95,49.583°N 11.017°E,75835
+200,1,North Rhine-Westphalia,Moers,104529,67.68,51.45917°N 6.61972°E,62717
+201,2,North Rhine-Westphalia,Moers,104529,67.68,51.45917°N 6.61972°E,62717
+202,3,North Rhine-Westphalia,Moers,104529,67.68,51.45917°N 6.61972°E,62717
+203,4,North Rhine-Westphalia,Moers,104529,67.68,51.45917°N 6.61972°E,62717
+204,1,North Rhine-Westphalia,Siegen,102355,114.69,50.883°N 8.017°E,71648
+205,2,North Rhine-Westphalia,Siegen,102355,114.69,50.883°N 8.017°E,71648
+206,3,North Rhine-Westphalia,Siegen,102355,114.69,50.883°N 8.017°E,71648
+207,1,Lower Saxony,Hildesheim,101667,92.18,52.150°N 9.950°E,71167
+208,2,Lower Saxony,Hildesheim,101667,92.18,52.150°N 9.950°E,71167
+209,3,Lower Saxony,Hildesheim,101667,92.18,52.150°N 9.950°E,71167
+210,1,Lower Saxony,Salzgitter,101079,223.92,52.150°N 10.333°E,101079
