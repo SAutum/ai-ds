@@ -25,7 +25,8 @@ def join(relation1: Relation, relation2: Relation) -> Relation:
         build_input_R = relation2
         probe_input_S = relation1
 
-    # initialize the hash table, store tuples in the relation to R
+    # initialize the hash table, store tuples in the relation as python dictionary
+    # to the hash table
     for i in range(relation_len(build_input_R)):
         """
         tuple can be hashed, so I set the common attribute values as key

@@ -1,1 +1,13 @@
 # Your solution goes here.
+
+- Sorting phase: the best worst case time complexity for sorting without
+prior knowledge is in O(klog(k))
+-> O(mlog(m) + nlog(n))
+
+- Joining phase:
+each tuple in both relations is visited at least once for checking matches
+O(m + n).
+additionally, for k tuples, the algorithm iterates over their columns to
+add to the result O(kc)
+-> O(kc)
+So in total -> O(mlog(m) + nlog(n) + m + n + kc) = O(mlog(m) + nlog(n))

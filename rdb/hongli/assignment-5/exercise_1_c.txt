@@ -1,1 +1,23 @@
 # Your solution goes here.
+
+suppose n<m (always choose small n for building input R)
+building input R
+- Building phase: add each tuple in R into a temporary hash table.
+    -> O(n)
+- Scanning phase:
+for each tuple in S, we need to check if its hash value
+is in the table. For the lookup loop we need O(m), for each search
+in the worst case we need O(n), given that each tuple in R has a
+unique key in the hash table. -> O(mn)
+
+for joining, the algorithm iterates through the c output columns
+only if it finds match in the searching phase, in which there will
+be k total matches. -> O(kc)
+
+So in total the hash join has worst case time complexity in
+O(n + mn + kc)
+Since n < mn and kc < mn, the time complexity is in O(mn)
+
+On average hash table a O(1) time so average case time complexity will
+be O(n + m + kc). Assume c << m or n, and k < m or n, kc
+should have similar magnitude as m and n.
