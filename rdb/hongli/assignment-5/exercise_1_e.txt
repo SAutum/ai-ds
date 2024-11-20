@@ -1,0 +1,8 @@
+# Your solution goes here.
+
+- When the relations are already sorted.
+The time complexity of merge join is directly down to O(m + n + kc)
+
+- when we have useful prior knowledge about the common attributes.
+e.g. we could use counting sort if there isn't too many different
+common attributes, the time complexity is also at most linear.

@@ -1,0 +1,14 @@
+# BEGIN_SOLUTION
+
+The first loop to build the index has a complexity of O(n * c) because
+there is one operation for each row and each column element.
+
+The outer nested loop is visited m times and the middle nested loop is entered
+k times. The inner-most loop contributes a factor of c to get O((m + k) * c).
+
+Combining both gives a total complexity of O((n + m + k) * c).
+
+k can not be simplified, because the output may be n * m rows long in the case
+of a cross product, which is more than n + m.
+
+# END_SOLUTION

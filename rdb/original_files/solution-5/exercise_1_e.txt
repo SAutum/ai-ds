@@ -1,0 +1,10 @@
+# BEGIN_SOLUTION
+
+- Tables may already be sorted or there might be a B-Tree index to help.
+- If a user wants a sorted result, it needs to be sorted anyway.
+- For very large relations, the hash index might not fit into memory. In this
+    case, the hash index would be written to disk. Reading it back into memory
+    would be slow. However, for merge joins, there are efficient sorting methods
+    which do not require that the entire relation is in RAM at the same time.
+
+# END_SOLUTION

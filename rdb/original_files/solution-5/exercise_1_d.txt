@@ -1,0 +1,26 @@
+# BEGIN_SOLUTION
+
+In the general case, the complexity is
+
+    O((n log n + m log m + k) * c).
+
+k can not be simplified because it can potentially be larger than n log n.
+
+If both relations were sorted already, the complexity is
+
+    O((n + m + k) * c).
+
+Relations are not always sorted, but sometimes they are. For example, if
+a previous operation sorted the result, or if there is an index with
+sorted order. Not all indexes are sorted, for example a hash table is not,
+but a B-tree is.
+
+The terms O(n log n) and O(m log n) of the complexity arise from sorting
+the relations.
+
+The while-loops will step over each row of relation1 and relation 2 exactly
+once, resulting in O(n + m) steps.
+
+All that has to be multiplied by the number of columns c.
+
+# END_SOLUTION

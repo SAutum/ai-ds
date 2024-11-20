@@ -13,7 +13,7 @@ import time
 import tracemalloc
 import zlib
 from pathlib import Path
-from typing import List, Dict, Set, Optional
+from typing import Optional
 
 all_imports = """
 array
@@ -107,6 +107,7 @@ packaging==24.1
 pillow==10.4.0
 psycopg==3.2.3
 psycopg-binary==3.2.3
+psycopg-pool==3.2.3
 pyparsing==3.1.4
 python-dateutil==2.9.0.post0
 six==1.16.0
@@ -126,7 +127,9 @@ def begin_testing() -> None:
     operating_system = platform.system()
 
     if operating_system != "Linux":
-        print_red(f"WARNING: It seems that you are running this script on {operating_system}. This script is designed to run on Linux.")
+        print_red(
+            f"WARNING: It seems that you are running this script on {operating_system}. This script is designed to run on Linux."
+        )
 
     # Begin memory profiling
     tracemalloc.start()
@@ -136,26 +139,30 @@ def finish(
     filename: str,
     max_seconds: float = 30.0,
     max_memory: float = 1e9,
-    allowed_imports: Set[str] = set(all_imports.strip().split()),
-    disallowed_imports: Set[str] = set(),
-    disallowed_identifiers: Set[str] = set(),
+    allowed_imports: set[str] = set(all_imports.strip().split()),
+    disallowed_imports: set[str] = set(),
+    disallowed_identifiers: set[str] = set(),
     min_size: int = 10,
     max_size: int = 10**6,
 ) -> None:
     # End memory profiling
     _, peak = tracemalloc.get_traced_memory()
 
-    assert peak <= max_memory, f"Your solution uses {peak*1e-6:.3f} MB of memory, which is more than the allowed maximum of {max_memory*1e-6:.3f} MB for this exercise."
+    assert (
+        peak <= max_memory
+    ), f"Your solution uses {peak*1e-6:.3f} MB of memory, which is more than the allowed maximum of {max_memory*1e-6:.3f} MB for this exercise."
 
     tracemalloc.stop()
 
     # Check execution time
     elapsed_time = time.perf_counter() - start_time
 
-    assert elapsed_time <= max_seconds, f"Your solution took {elapsed_time:.3f} seconds to run, which is more than the allowed maximum of {max_seconds:.3f} seconds for this exercise."
+    assert (
+        elapsed_time <= max_seconds
+    ), f"Your solution took {elapsed_time:.3f} seconds to run, which is more than the allowed maximum of {max_seconds:.3f} seconds for this exercise."
 
     # If filename of test is given, test same filename without "test_" instead
-    if re.match(r".*test_exercise_.*\.py$", filename):
+    if re.match(r".*test_exercise.*\.py$", filename):
         filename = os.path.basename(filename)[len("test_") :]
 
     if Path(filename).suffix in [".md", ".txt", ".png", ".pdf"]:
@@ -197,7 +204,9 @@ def finish(
 
         if name is not None:
             line = lines[node.lineno - 1]
-            assert name not in disallowed_identifiers, f'"{name}" in line {node.lineno} is not allowed for this exercise.\n\n{line}'
+            assert (
+                name not in disallowed_identifiers
+            ), f'"{name}" in line {node.lineno} is not allowed for this exercise.\n\n{line}'
 
         if isinstance(node, ast.alias):
             assert node.name not in disallowed_identifiers, f'"{node.name}" is not allowed for this exercise.'
@@ -207,24 +216,38 @@ def finish(
             line = lines[node.lineno - 1]
             for node_name in node.names:
                 module = node_name.name.split(".")[0]
-                assert module in allowed_imports, f"Import of {module} module in line {node.lineno} of file {filename} not allowed for this exercise. Allowed imports for this exercise are:\n\n" + ", ".join(sorted(allowed_imports))
+                if "exercise_" in module:
+                    continue
+                assert module in allowed_imports, (
+                    f"Import of {module} module in line {node.lineno} of file {filename} not allowed for this exercise. Allowed imports for this exercise are:\n\n"
+                    + ", ".join(sorted(allowed_imports))
+                )
 
         if isinstance(node, ast.ImportFrom):
             line = lines[node.lineno - 1]
             if not node.module:
                 continue
             module = node.module.split(".")[0]
-            assert module in allowed_imports, f"Import of {module} module in line {node.lineno} of file {filename} not allowed for this exercise. Allowed imports for this exercise are:\n\n" + ", ".join(sorted(allowed_imports))
+            if "exercise_" in module:
+                continue
+            assert module in allowed_imports, (
+                f"Import of {module} module in line {node.lineno} of file {filename} not allowed for this exercise. Allowed imports for this exercise are:\n\n"
+                + ", ".join(sorted(allowed_imports))
+            )
 
     # Check common mistakes
 
     # Check if np.vectorize was used
-    assert "np.vectorize" not in code, 'Do not use the function np.vectorize. See docs: "The vectorize function is provided primarily for convenience, not for performance. The implementation is essentially a for loop."'
+    assert (
+        "np.vectorize" not in code
+    ), 'Do not use the function np.vectorize. See docs: "The vectorize function is provided primarily for convenience, not for performance. The implementation is essentially a for loop."'
 
     # Check if parameters are passed to psycopg
     match = re.match(r"psycopg.connect\(.+?\)", code, flags=re.DOTALL)
     if match:
-        print_red(f"It looks like you are passing parameters to {match}. This will break our tests and your solution will not work. Instead, use environment variables like PGUSER to configure your connection.")
+        print_red(
+            f"It looks like you are passing parameters to {match}. This will break our tests and your solution will not work. Instead, use environment variables like PGUSER to configure your connection."
+        )
 
     # Check if tests have been modified
     for testfile in sorted(Path(".").glob("test_*.py")):
@@ -243,9 +266,15 @@ def check_no_for_loops(filename: str) -> None:
     lines = text.splitlines()
     tree = ast.parse(text)
     for node in ast.walk(tree):
-        assert not isinstance(node, ast.For), f"For loop in line {node.lineno} of file {filename} not allowed for this exercise:\n\n{lines[node.lineno - 1]}"
-        assert not isinstance(node, ast.While), f"While loop in line {node.lineno} of file {filename} not allowed for this exercise:\n\n{lines[node.lineno - 1]}"
-        assert not isinstance(node, ast.ListComp), f"List comprehension in line {node.lineno} of file {filename} not allowed for this exercise (does not offer increased performance compared to a for-loop):\n\n{lines[node.lineno - 1]}"
+        assert not isinstance(
+            node, ast.For
+        ), f"For loop in line {node.lineno} of file {filename} not allowed for this exercise:\n\n{lines[node.lineno - 1]}"
+        assert not isinstance(
+            node, ast.While
+        ), f"While loop in line {node.lineno} of file {filename} not allowed for this exercise:\n\n{lines[node.lineno - 1]}"
+        assert not isinstance(
+            node, ast.ListComp
+        ), f"list comprehension in line {node.lineno} of file {filename} not allowed for this exercise (does not offer increased performance compared to a for-loop):\n\n{lines[node.lineno - 1]}"
 
 
 def test_checksum(filename: str) -> None:
@@ -260,17 +289,17 @@ def print_red(msg: str) -> None:
     print(f"\033[91m{msg}\033[0m")
 
 
-def print_log(log: List[str], msg: str) -> None:
+def print_log(log: list[str], msg: str) -> None:
     print(msg)
     log.append(msg)
 
 
-def print_log_red(log: List[str], msg: str) -> None:
+def print_log_red(log: list[str], msg: str) -> None:
     print(f"\033[91m{msg}\033[0m")
     log.append(msg)
 
 
-def read_versions(text: str) -> Dict[str, str]:
+def read_versions(text: str) -> dict[str, str]:
     versions = dict(line.split("==") for line in text.strip().replace("\r", "").split("\n") if line.count("==") == 1)
     return versions
 
@@ -289,8 +318,12 @@ def check_file_size(filename: str, min_size: int, max_size: int) -> None:
 
     size = Path(filename).stat().st_size
 
-    assert size >= min_size, f"File {filename} is smaller than expected ({size} bytes). Expected at least {min_size} bytes."
-    assert size <= max_size, f"File {filename} is larger than expected ({size} bytes). Expected no more than {max_size} bytes."
+    assert (
+        size >= min_size
+    ), f"File {filename} is smaller than expected ({size} bytes). Expected at least {min_size} bytes."
+    assert (
+        size <= max_size
+    ), f"File {filename} is larger than expected ({size} bytes). Expected no more than {max_size} bytes."
 
     print(f"File {filename} exists. Content will be checked manually after the deadline.")
 
@@ -298,12 +331,12 @@ def check_file_size(filename: str, min_size: int, max_size: int) -> None:
 begin_testing()
 
 
-def test_and_zip(assignment: str = "rdda-0", max_size: int = 10**6) -> None:
+def test_and_zip(assignment: str = "rdda-0", max_size: int = 4 * 10**6) -> None:
     filenames = """
-        psycopg_example.py
-        exercise_1.py
-        test_exercise_1.py
         data
+        exercise_1.py
+        psycopg_example.py
+        test_exercise_1.py
         zipme.py""".strip().split()
 
     # Check if zipme.py has been modified
@@ -320,27 +353,33 @@ def test_and_zip(assignment: str = "rdda-0", max_size: int = 10**6) -> None:
 
         version += 1
 
-    log: List[str] = []
+    log: list[str] = []
 
     # Test Python version
     if sys.version_info.major != 3 or sys.version_info.minor != 10:
-        print_log_red(log, f"You are running Python {sys.version} instead of 3.10.*. Make sure your code also works with Python 3.10, or you will not get any points.")
+        print_log_red(
+            log,
+            f"You are running Python {sys.version} instead of 3.10.*. Make sure your code also works with Python 3.10, or you will not get any points.",
+        )
 
     command = [sys.executable, "-m", "pip", "list", "--format=freeze"]
     pip_freeze_output = subprocess.check_output(command).decode("utf-8")
     installed_versions = read_versions(pip_freeze_output)
 
-    incorrect_versions = []
+    incorrect_versions_list = []
 
     for library, library_version in read_versions(library_versions).items():
         if library not in installed_versions:
             print_log_red(log, f"WARNING: Library {library} is not installed.")
         elif installed_versions[library] != library_version:
-            incorrect_versions.append(f"{library} {installed_versions[library]} instead of {library_version}")
+            incorrect_versions_list.append(f"{library} {installed_versions[library]} instead of {library_version}")
 
-    if incorrect_versions:
-        incorrect_versions = ", ".join(incorrect_versions)
-        print_log_red(log, f"WARNING: Some libraries have incorrect versions: {incorrect_versions}. We will not fix your code if it does not work with the required version.")
+    if incorrect_versions_list:
+        incorrect_versions = ", ".join(incorrect_versions_list)
+        print_log_red(
+            log,
+            f"WARNING: Some libraries have incorrect versions: {incorrect_versions}. We will not fix your code if it does not work with the required version.",
+        )
 
     # Create new assignment directory
     print_log(log, f"Copying files to {directory} test directory.")
@@ -361,7 +400,7 @@ def test_and_zip(assignment: str = "rdda-0", max_size: int = 10**6) -> None:
     num_passed = 0
     num_tests = 0
     for filename in filenames:
-        if not filename.startswith("test_exercise_"):
+        if not filename.startswith("test_exercise"):
             continue
 
         num_tests += 1
@@ -419,7 +458,9 @@ def test_and_zip(assignment: str = "rdda-0", max_size: int = 10**6) -> None:
     # Complain about files which are too large
     size = archive.stat().st_size
 
-    assert size <= max_size, f"Your submission is too large. The maximum is {max_size*1e-6} MB, but your submission is {size*1e-6:.6f} MB."
+    assert (
+        size <= max_size
+    ), f"Your submission is too large. The maximum is {max_size*1e-6} MB, but your submission is {size*1e-6:.6f} MB."
 
     # Cleanup
     shutil.rmtree(directory)
@@ -428,4 +469,4 @@ def test_and_zip(assignment: str = "rdda-0", max_size: int = 10**6) -> None:
 if __name__ == "__main__":
     test_and_zip()
 
-# 22575123003000000000
+# 74733134042000000000
