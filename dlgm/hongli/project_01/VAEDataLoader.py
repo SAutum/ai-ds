@@ -93,24 +93,29 @@ class BrainImageDataset(Dataset):
 
 
 class BrainRandomSampler(Sampler):
-    def __init__(self, dataset, tile_size, batch_size):
+    def __init__(self, dataset, tile_size, batch_size, num_of_batches):
         self.dataset = dataset
         self.batch_size = batch_size
         self.tile_size = tile_size
-        self.length = len(dataset)//batch_size * 3
+        self.length = num_of_batches
 
         # save a probability distribution for each brain
         self.calculate_probabilities()
 
+        # test using only one tile
+        # self.tile = self.sample_tile()
+
     # for each tile we sample 2 times, one for the brain and one for the image
     def calculate_probabilities(self):
-        # the probability of each brain is the number of available images for the brain/total number of images
+        # the probability of each brain is the number of available images for
+        # the brain/total number of images
         self.brain_probabilities = np.array(
             [len(self.dataset.available_images(brain)) for brain in self.dataset.brains]
         )
         self.brain_probabilities = self.brain_probabilities/np.sum(self.brain_probabilities)
 
-        # the probability of each image is the number of available tiles for the image/total number of tiles in the brain
+        # the probability of each image is the number of available tiles for
+        # the image/total number of tiles in the brain
         self.image_probabilites = {}
         for brain in self.dataset.brains:
             image_tiles = np.zeros(len(self.dataset.available_images(brain)))
@@ -120,33 +125,29 @@ class BrainRandomSampler(Sampler):
             self.image_probabilites[brain] = image_tiles/np.sum(image_tiles)
 
     def sample_tile(self):
-            # sample the tuple based on the total number available tiles in each
-            # brain and image
-            brain = torch.randint(len(self.dataset.brains), (1, ))
-            brain = self.dataset.brains[brain]
-            image_name = torch.randint(len(self.dataset.available_images(brain)), (1,))
-            image_name = self.dataset.available_images(brain)[image_name]
+        # sample the tuple based on the total number available tiles in each
+        # brain and image
+        brain = torch.randint(len(self.dataset.brains), (1, ))
+        brain = self.dataset.brains[brain]
+        image_name = torch.randint(len(self.dataset.available_images(brain)), (1,))
+        image_name = self.dataset.available_images(brain)[image_name]
 
-            # get the image
-            image = self.dataset.h5pyfile[brain][image_name]
-            # sample the row and column
-            row = torch.randint(image.shape[0]-self.tile_size, (1,))
-            column = torch.randint(image.shape[1]-self.tile_size, (1,))
-            tile = (brain, image_name, int(row), int(column), self.tile_size)
-            return tile
+        # get the image
+        image = self.dataset.h5pyfile[brain][image_name]
+        # sample the row and column
+        row = torch.randint(image.shape[0]-self.tile_size, (1,))
+        column = torch.randint(image.shape[1]-self.tile_size, (1,))
+        tile = (brain, image_name, int(row), int(column), self.tile_size)
+        return tile
 
     def __iter__(self):
         # return a batch of samples using sample_tile for each sample
-        batch = []
-
         for j in range(self.length):
-
+            batch = []
             for i in range(self.batch_size):
                 batch.append(self.sample_tile())
-
-            if len(batch) == self.batch_size:
-                yield batch
-                batch = []
+                # batch.append(self.tile)
+            yield batch
 
     def __len__(self):
         return self.length
