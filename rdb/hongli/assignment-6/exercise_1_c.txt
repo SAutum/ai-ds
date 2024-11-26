@@ -1,0 +1,10 @@
+# Your solution goes here.
+Like SQL injection, the website takes all the info in the comments as
+HTML language.
+
+I injected a script which generates an alert and the hacked website will
+show the message I wrote:
+
+<script>
+alert('Congrats! You just win our $1000! Please contact our customer service ASAP: 4008008820')
+</script>

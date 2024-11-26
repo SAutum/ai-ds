@@ -1,0 +1,7 @@
+# Your solution goes here.
+use parametrized SQL query:
+"SELECT username FROM bird WHERE ? = password AND username = ?"
+
+Pass the password and username as tuple in python during execution.
+In this way the values in the question marks will be treated as values
+other than commands.

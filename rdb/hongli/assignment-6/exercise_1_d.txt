@@ -1,0 +1,6 @@
+# Your solution goes here.
+As I looked up there is no solution to prevent all XSS once and for
+all. For our example we could use HTML escaping:
+- renter_template in flask
+- the escape function in werkzeug.utils:
+Replace special characters “&”, “<”, “>” and (”) to HTML-safe sequences.
