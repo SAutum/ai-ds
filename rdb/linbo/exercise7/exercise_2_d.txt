@@ -1,0 +1,3 @@
+# Your solution goes here.
+
+The current dimension is month. After two grill-down operations, the dimension becomes the hour. After four roll-up operations, the dimension becomes the year. After three grill-down operations, the dimension becomes the day. After two roll-up operations, the dimension becomes the quarter. After those operations, the cube have 4 subcubes along its time dimension.
