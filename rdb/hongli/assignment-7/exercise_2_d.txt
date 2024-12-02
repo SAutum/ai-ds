@@ -1,0 +1,9 @@
+# Your solution goes here.
+# hour → day → month → quarter → year
+# start -> month
+# two drill-down -> hour
+# four roll-up -> year
+# three drill-down -> day
+# two roll-up -> quarter
+
+4
