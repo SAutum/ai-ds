@@ -1,0 +1,10 @@
+# BEGIN_SOLUTION
+
+Use parameter substitution ('?' placeholders in sqlite3) instead of string formatting.
+This will take care of escaping dangerous characters.
+
+Alternatively, when using Psycopg, you could build your query using SQL objects:
+
+https://www.psycopg.org/docs/sql.html
+
+# END_SOLUTION

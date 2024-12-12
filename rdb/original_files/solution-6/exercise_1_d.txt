@@ -1,0 +1,14 @@
+# BEGIN_SOLUTION
+
+All user input must be sanitized, for example by escaping it with `html.escape`,
+which will replace the characters '&', '<' and '>' with '&amp;', '&lt;' and
+'&gt;'. The browser will not interpret the escaped sequences as code.
+
+(html.escape also escapes single quotes and double quotes, which is not relevant
+since we are not inside a quoted HTML attribute value.)
+
+Another solution are render templates, which are escaped by default:
+
+https://flask.palletsprojects.com/en/2.2.x/templating/#controlling-autoescaping
+
+# END_SOLUTION
