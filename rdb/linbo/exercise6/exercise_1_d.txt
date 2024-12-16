@@ -1,0 +1,11 @@
+# Your solution goes here.
+The easiest way I've found to somehow prevent XSS attacks is to use Python's built-in html.esccape module for escaping. We can import the escape from html, it can replace escaping html characters in a string, for example it can replace < with &lt and > with &gt. And we need to change the code from 
+"<div class="tweet-text">
+        {tweet_text}
+</div>" 
+
+to
+
+"<div class="tweet-text">
+        {escape(tweet_text)}
+</div>".

@@ -1,0 +1,61 @@
+body {
+    margin: 30px auto;
+    max-width: 1000px;
+    font: 18px "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+h2 {
+    text-align: center;
+}
+.table {
+    /* center vertically */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 70px;
+}
+.table table {
+    border-collapse: collapse;
+    padding: 20px;
+    margin: 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+    border-collapse: separate;
+    border: solid black 1px;
+    border-radius: 10px;
+    text-align: center;
+}
+.table thead th:first-of-type {
+    border-top-left-radius: 10px;
+}
+.table thead th:last-of-type {
+    border-top-right-radius: 10px;
+}
+.table thead th {
+    text-align: center;
+    padding: 10px;
+    background-color: #4488cc;
+    color: #ffffff;
+    font-weight: bold;
+    margin: 0;
+}
+.table td {
+    text-align: right;
+    padding: 5px 10px;
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font: 13px "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+/* show full text on hover */
+.table td:hover {
+    max-width: none;
+    overflow: visible;
+    white-space: normal;
+}
+.table tbody tr:nth-of-type(even) {
+    background-color: #eee;
+}

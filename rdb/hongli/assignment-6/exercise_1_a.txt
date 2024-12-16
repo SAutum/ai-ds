@@ -1,0 +1,7 @@
+# Your solution goes here.
+The password I entered was:
+eltonmollusk' = username OR 'hey
+
+The website takes part of the entered password as SQL operator.
+I use the a username check condition to grasp the username eltonmollusk info,
+and then use OR command to bypass the password check.

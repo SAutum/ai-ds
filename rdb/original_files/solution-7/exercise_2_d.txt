@@ -1,0 +1,16 @@
+# BEGIN_SOLUTION
+
+Drill-Down operations give us a more detailed data cube.
+If we drill down twice, we go from "month" to "hour".
+Roll-Up moves us up the hierarchy.
+Rolling up four times, we arrive at "year".
+Then drilling down thrice and rolling up twice, we arrive at "quarter".
+There are four quarters in a year, so the answer is:
+
+4
+
+(Some people also consider the aggregated sum over a dimension as an additional
+subcube, in which case we'd have thirteen subscubes in the initial arangement
+and five in the final state.)
+
+# END_SOLUTION

@@ -1,0 +1,42 @@
+.tweet {
+    border-radius: 1em;
+    padding: 1em;
+    margin: 1em;
+    background-color: white;
+}
+.tweet-username {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+#tweet-button {
+    background-color: #1da1f2;
+    color: white;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    margin: 0.5em;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+#error_message {
+    color: red;
+}
+.verified {
+    background-image: url(/static/verified.svg);
+    background-repeat: no-repeat;
+    width: 32px;
+    height: 32px;
+}
+body {
+    background-color: #1da1f2;
+    margin: 30px auto;
+    max-width: 700px;
+    line-height: 1.6;
+    font: 16px/1.6 "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding: 0 10px;
+}
+.tweet-form {
+    background-color: white;
+    padding: 0.5em;
+    margin: 0.5em;
+    border-radius: 0.5em;
+}

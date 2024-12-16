@@ -1,0 +1,5 @@
+# Your solution goes here.
+At first, I tried some standard sql injections like ' OR 1=1 -- but failed. Then I realized that the query logic required the injection to specifically target the username column to return a single row that matches the if len(rows) == 1 condition.
+So I tried using 'OR username='eltonmollusk' -- as the password. When I enter the password, the SQL query becomes SELECT username FROM bird WHERE '' OR username='eltonmollusk'' -- = password AND username = '{username}';
+The OR username='eltonmollusk' helps find the matching username, while the operator -- comments out the rest of the query, bypassing the password check.
+

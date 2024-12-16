@@ -1,0 +1,8 @@
+# Your solution goes here.
+We can use parameterized statements to prevent SQL injection.
+In this case, we can change the original code to the 
+ # Check password
+cursor.execute("SELECT username FROM bird WHERE password = ? AND username = ?",(password,username)).
+By this way, the database treats user inputs as data rather than the SQL command.
+
+

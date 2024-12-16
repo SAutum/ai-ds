@@ -1,0 +1,5 @@
+# Your solution goes here.
+I find that in this part 
+"<div class="tweet-text">
+        {tweet_text}
+</div>" the {tweet_text} was placed into the page without any escaping. And it can be used for XSS. To test this, I decided to use a simple XSS payload: <script>alert('Warning!')</script>. When submitted as a tweet, this payload would embed a JavaScript <script> tag into the webpage. If the web renders this tag without escaping, the browser would execute the JavaScript and display a altert.
