@@ -1,0 +1,5 @@
+# BEGIN_SOLUTION
+B+ trees are better than B-trees for range queries because they have linked
+nodes. This makes traversing the leaf nodes faster, since we do not have to
+walk up and down the nodes and can just follow the leaf pointers.
+# END_SOLUTION
