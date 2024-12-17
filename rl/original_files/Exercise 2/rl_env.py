@@ -207,7 +207,7 @@ class MazeEnv(gym.Env):
                     fig.draw_artist(artist)
 
                 def fig_draw_text(x, y, text, color, fontsize):
-                    artist = matplotlib.text.Text(x, y, text, color, fontsize=fontsize,
+                    artist = matplotlib.text.Text(x, y, text, color=color, fontsize=fontsize,
                                                   ha='center', va='center_baseline', transform=artist_trans)
                     artist.figure = fig
                     fig.draw_artist(artist)
