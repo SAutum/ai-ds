@@ -1,0 +1,11 @@
+# No index
+
+# Your solution goes here.
+
+# Index on x
+
+# Your solution goes here.
+
+# Index on x and y
+
+# Your solution goes here.
