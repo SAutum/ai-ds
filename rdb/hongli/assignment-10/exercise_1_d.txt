@@ -1,0 +1,32 @@
+# No index
+
+QUERY PLAN
+----------------------------------------------------------------------------------------------------
+ Seq Scan on mytable  (cost=0.00..2041.00 rows=1 width=4) (actual time=0.022..8.157 rows=1 loops=1)
+   Filter: ((x = 0) AND (y = 0))
+   Rows Removed by Filter: 99999
+ Planning Time: 0.125 ms
+ Execution Time: 8.179 ms
+(5 rows)
+
+# Index on x
+
+QUERY PLAN
+----------------------------------------------------------------------------------------------------
+ Seq Scan on mytable  (cost=0.00..2041.00 rows=1 width=4) (actual time=0.006..3.756 rows=1 loops=1)
+   Filter: ((x = 0) AND (y = 0))
+   Rows Removed by Filter: 99999
+ Planning Time: 0.116 ms
+ Execution Time: 3.762 ms
+(5 rows)
+
+
+# Index on x and y
+
+QUERY PLAN
+-----------------------------------------------------------------------------------------------------------------
+ Index Scan using x_index on mytable  (cost=0.29..8.31 rows=1 width=4) (actual time=0.056..0.059 rows=1 loops=1)
+   Index Cond: ((x = 0) AND (y = 0))
+ Planning Time: 0.366 ms
+ Execution Time: 0.108 ms
+(4 rows)
