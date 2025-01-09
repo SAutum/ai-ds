@@ -1,0 +1,51 @@
+# No index
+
+# BEGIN_SOLUTION
+EXPLAIN ANALYZE SELECT z FROM mytable WHERE x = 0 AND y = 0;
+
+                                              QUERY PLAN
+------------------------------------------------------------------------------------------------------
+ Seq Scan on mytable  (cost=0.00..2041.00 rows=2 width=4) (actual time=13.921..13.922 rows=0 loops=1)
+   Filter: ((x = 0) AND (y = 0))
+   Rows Removed by Filter: 100000
+ Planning Time: 0.460 ms
+ Execution Time: 13.982 ms
+(5 rows)
+# END_SOLUTION
+
+# Index on x
+
+# BEGIN_SOLUTION
+CREATE INDEX x_index ON mytable(x);
+EXPLAIN ANALYZE SELECT z FROM mytable WHERE x = 0 AND y = 0;
+DROP INDEX x_index;
+
+                                                      QUERY PLAN
+-----------------------------------------------------------------------------------------------------------------------
+ Bitmap Heap Scan on mytable  (cost=8.04..567.78 rows=2 width=4) (actual time=16.553..16.554 rows=0 loops=1)
+   Recheck Cond: (x = 0)
+   Filter: (y = 0)
+   Rows Removed by Filter: 100000
+   Heap Blocks: exact=541
+   ->  Bitmap Index Scan on x_index  (cost=0.00..8.04 rows=500 width=0) (actual time=5.234..5.234 rows=100000 loops=1)
+         Index Cond: (x = 0)
+ Planning Time: 0.294 ms
+ Execution Time: 16.585 ms
+(9 rows)
+# END_SOLUTION
+
+# Index on x and y
+
+# BEGIN_SOLUTION
+CREATE INDEX x_y_index ON mytable(x, y);
+EXPLAIN ANALYZE SELECT z FROM mytable WHERE x = 0 AND y = 0;
+DROP INDEX x_y_index;
+
+                                                    QUERY PLAN
+-------------------------------------------------------------------------------------------------------------------
+ Index Scan using x_y_index on mytable  (cost=0.29..6.06 rows=1 width=4) (actual time=0.031..0.031 rows=0 loops=1)
+   Index Cond: ((x = 0) AND (y = 0))
+ Planning Time: 0.290 ms
+ Execution Time: 0.050 ms
+(4 rows)
+# END_SOLUTION

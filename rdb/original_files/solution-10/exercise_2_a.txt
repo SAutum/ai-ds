@@ -1,0 +1,25 @@
+# BEGIN_SOLUTION
+
+(a) is a Christmas tree. You can tell it is a Christmas tree because the way it is. https://www.youtube.com/watch?v=Hm3JodBR-vs&t=62s
+
+(b) is a grid file (evenly spaced grid with pointers to pages).
+
+(c) is not a B+ tree because it is not balanced (leaf nodes have different
+distance to root node)
+
+(d) is a K-D-B-Tree, as this structure can arise from recursive subdivision of
+a rectangle.
+
+(e) is a B tree (no linked leafs, which would make it a B+ tree, balanced,
+nodes with m + 1 children)
+
+(f) might appear like a K-D-B tree at first glance, but contains a concave
+region in the bottom-left quadrant, which disqualifies it. So this is nothing
+in particular.
+
+(g) is a data cube. You can tell because of the cubes. Alternatively, this can
+also be a 3D grid file without pointers to pages.
+
+(h) is an R-tree (rectangular nodes with rectangular subnodes)
+
+# END_SOLUTION
