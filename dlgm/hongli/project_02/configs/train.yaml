@@ -1,0 +1,38 @@
+# Data
+data_path: "~/sciebo (2)/EBRAINS/"
+data_fom: "fom"
+data_trans: "transmittance"
+trans_suffix: "NTransmittance"
+fom_suffix: "FOM_HSV"
+
+train_vervet: Vervet1818
+
+val_vervet: Vervet1947
+
+levels:
+  - '00'
+  - '01'
+  - '02'
+  - '03'
+  - '04'
+  - '05'
+  - '06'
+  - '07'
+  - '08'
+  - '09'
+  - '10'
+
+# Optimization Parameters
+lr: 0.001
+weight_decay: 0.0001
+
+# Training
+device: cuda
+batch_size: 64
+num_workers: 12
+train_epoch_size: 65_536
+num_epochs: 50
+log_interval: 100
+
+# Validation
+val_epoch_size: 512
