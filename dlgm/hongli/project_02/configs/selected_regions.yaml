@@ -1,0 +1,9 @@
+train:
+- Vervet1818_s0850_right
+- Vervet1818_s0830_right
+- Vervet1818_s0961_right
+- Vervet1818_s0850_left
+- Vervet1818_s1061_right
+val:
+- Vervet1947_s0210_None
+- Vervet1947_s0097_None

@@ -2,13 +2,12 @@
 data_path: "~/sciebo (2)/EBRAINS/"
 data_fom: "fom"
 data_trans: "transmittance"
-trans_suffix: "NTransmittance"
-fom_suffix: "FOM_HSV"
-
+suffixes: {
+  fom_suffix: "FOM_HSV",
+  trans_suffix: "NTransmittance",
+}
 train_vervet: Vervet1818
-
 val_vervet: Vervet1947
-
 levels:
   - '00'
   - '01'
@@ -21,6 +20,10 @@ levels:
   - '08'
   - '09'
   - '10'
+regions:
+  - left
+  - right
+  - cerebellum
 
 # Optimization Parameters
 lr: 0.001
