@@ -31,4 +31,19 @@ def one_dim_to_n_dim(index: int, grid_size: int, dimension: int) -> tuple[int, .
 
     """
 
-    # Your solution goes here.
+    # check if index is within bounds
+    if index < 0 or index >= grid_size ** dimension:
+        raise ValueError("Index out of bounds.")
+
+    # convert index to n-dimensional indices
+    n_dim_indices = []
+    for d in range(dimension):
+        _bindex = index >> d
+        n_dim_index = ''
+        # using string and binary operations to get the n-dimensional index
+        for i in range(grid_size):
+            n_dim_index = bin(_bindex)[-1] + n_dim_index
+            _bindex = _bindex >> dimension
+        n_dim_indices.append(int(n_dim_index, 2))
+
+    return tuple(n_dim_indices)

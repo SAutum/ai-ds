@@ -18,4 +18,12 @@ def n_dim_to_one_dim(point: tuple[int, ...], grid_size: int, dimension: int) -> 
 
     """
 
-    # Your solution goes here.
+    index = 0
+    # iterate through the point_list
+    for i in range(grid_size):
+        for j in range(dimension):
+            current_digit = (point[j] >> i) & 1
+            new_position = dimension * i + j
+            index |= current_digit << new_position
+
+    return index

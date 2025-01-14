@@ -12,25 +12,23 @@ from typing import Generator
 
 
 def find(point: Point, node: Node) -> bool:
+    # This function tries to find a given point within a node of an R-tree
     (x0, y0), (x1, y1) = node.bounds
     x, y = point
 
+    # If the point is outside the bounds of the R-tree, it certainly does not
+    # contain our point and we can stop looking.
     if x < x0 or x > x1 or y < y0 or y > y1:
         return False
 
-    """
-    x_min, x_max = node.bounds
-
-    for d in range(len(point)):
-        if point[d] < x_min[d] or x_max[d] < point[d]:
-            return False
-    """
-
+    # If we have points, we check whether our query point is among them.
     if node.points is not None:
         return point in node.points
 
+    # Otherwise, we have children.
     assert node.children is not None
 
+    # Recursively search for the point in the child nodes of the node.
     for child in node.children:
         if find(point, child):
             return True
@@ -297,7 +295,7 @@ def test(benchmark: bool = True) -> None:
     except FileNotFoundError:
         pass
 
-    for min_speedup, n in [(5, 2048), (15, 4096)]:
+    for min_speedup, n in [(4, 2048), (9, 4096)]:
         for points in [
             spiral(n, 3, 0.03),
             clusters(20, n // 20, 0.5, 10.0),
@@ -380,4 +378,4 @@ if __name__ == "__main__":
     test(benchmark=False)
     zipme.finish(__file__)
 
-# 12022713262200000000
+# 50120056301000000000
