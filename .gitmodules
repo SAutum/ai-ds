@@ -1,3 +1,6 @@
 [submodule "dlgm/hongli/project_02/submodules/stylegan2-ada-pytorch"]
 	path = dlgm/hongli/project_02/submodules/stylegan2-ada-pytorch
 	url = https://github.com/NVlabs/stylegan2-ada-pytorch.git
+[submodule "dlgm/hongli/project_02/submodules/pytorch-CycleGAN-and-pix2pix"]
+	path = dlgm/hongli/project_02/submodules/pytorch-CycleGAN-and-pix2pix
+	url = https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix.git
