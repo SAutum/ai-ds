@@ -7,3 +7,6 @@ and the deepest layer has 2048 features, our generated data is 64x64x3, which is
 For our data, if the image size is small, some regions out of the cell
 may be included in the image, which may cause the model to learn the background noise rather than the cell structure. These regions are usually black or while.
 one of the solutions to deal with black/whitetiles is to check the median of the pixel values of the image, if it is less than a certain threshold (black) or more than a certain threshold (white), the image is considered as a black/white tile and should be removed from the dataset. In this way the cropped images will be more likely to contain the cell structure. We implemented such thresholding in data sampling.
+
+Possible reasons of why stylegan2 works better than vanilla GAN:
+- stylegan introduces
