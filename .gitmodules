@@ -4,3 +4,6 @@
 [submodule "dlgm/hongli/project_02/submodules/pytorch-CycleGAN-and-pix2pix"]
 	path = dlgm/hongli/project_02/submodules/pytorch-CycleGAN-and-pix2pix
 	url = https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix.git
+[submodule "dlgm/hongli/project_02/submodules/pytorch-fid"]
+	path = dlgm/hongli/project_02/submodules/pytorch-fid
+	url = https://github.com/GetsEclectic/pytorch-fid.git
