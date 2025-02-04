@@ -1,0 +1,9 @@
+# Your solution goes here.
+
+1.List append: O(1), constant complexity
+2.List prepend: O(n), linear complexity
+3.Characters append: O(n), create a new string with n+1 char,
+    linear complexity
+4.Retrieving value from a dict: O(1)
+5.Appending a bit to integer: O(1), "bitwise operations are very very fast"
+6.Changing a bit in an integer: O(1)

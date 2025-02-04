@@ -1,0 +1,19 @@
+- a: a Christmas tree, an evergreen conifer with decorations
+
+- b: Grid File, data space is partitioned by grids into cells, which
+    form several regions.
+
+- c: like a B+ tree, a B tree structure with sequentially linked leaves.
+    But the tree here is not a balanced one (a level missing on the right)
+  e: a B tree.
+
+- d: K-D-B tree, a page is cutted by ranges of two attributes and stored
+    into a B-tree (not shown)
+  f: like a K-D-B tree, but the page shall be partitioned into rectangles,
+    there is an L shape in this example and no ranges could cut the page
+    into that shape.
+
+- g: cube, it's a cube with each dimension subdivided into non-overlapping
+    intervals.
+
+- h: R-tree, several regions of nodes on the same level are overlapping
